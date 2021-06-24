@@ -130,7 +130,7 @@ jobs:
       id: package
       with:
         types: s905d
-        openwrt-version: R21.6.14
+        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
