@@ -49,12 +49,13 @@ jobs:
         sudo -E apt-get -qq clean
         
     - name: Package OpenWrt with flippy script
-      uses: doctor-design/package-flippy-openwrt@main
+      uses: mingxiaoyu/package-flippy-openwrt@main
       with:
         types: s905d
-#        openwrt-version: R21.6.22
+        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
+        kernel-version: 5.12.13-flippy-61+
         sub-name: ${{ env.SUB_VERSION}}
 #       openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/$version/openwrt-armvirt-64-default-rootfs-${SUB_VERSION}.tar.gz 
         openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/${{ env.version }}/openwrt-armvirt-64-default-rootfs-${{ env.SUB_VERSION }}.tar.gz        
