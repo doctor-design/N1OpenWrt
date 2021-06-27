@@ -84,7 +84,7 @@ jobs:
              5. gzip -d  *.img.gz
              6. ./update-amlogic-openwrt.sh xxxx.img
              
-        artifacts: ${{ env.UPLOAD }}/*
+        artifacts: "${{ env.UPLOAD }}/*"
                 
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
