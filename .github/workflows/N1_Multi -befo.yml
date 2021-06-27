@@ -126,12 +126,13 @@ jobs:
         artifacts:  ${{ env.UPLOAD }}/*
         
     - name: Package OpenWrt with flippy script
-      uses: doctor-design/package-flippy-openwrt@main
+      uses: mingxiaoyu/package-flippy-openwrt@main
       id: package
       with:
         types: s905d
-#        openwrt-version: R21.6.14
+        openwrt-version: R21.6.22
         whoami: doctor
+        kernel-version: 5.12.13-flippy-61
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
         openwrt-path: $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
