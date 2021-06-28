@@ -49,7 +49,7 @@ jobs:
         sudo -E apt-get -qq clean
         
     - name: Package OpenWrt with flippy script
-      uses: doctor-design/package-flippy-openwrt@main
+      uses: mingxiaoyu/package-flippy-openwrt@main
       with:
         types: s905d
         openwrt-version: R21.6.22
