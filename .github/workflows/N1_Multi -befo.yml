@@ -126,7 +126,7 @@ jobs:
         artifacts:  ${{ env.UPLOAD }}/*
         
     - name: Package OpenWrt with flippy script
-      uses: doctor-design/package-flippy-openwrt@main
+      uses: mingxiaoyu/package-flippy-openwrt@main
       id: package
       with:
         types: s905d
