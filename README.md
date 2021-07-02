@@ -9,6 +9,27 @@ N1打包学习测试，请不要使用。
 5. N1 Single Version 只编译一个版本
 6. Update Checker, 上游更新则编译。MULTIPLE_BUILD: true **编译mini和plus多版本编译**  false，**只编译mini**
 
+ openwrt rootfs 编译注意事项：
+
+       Target System  ->  QEMU ARM Virtual Machine 
+       Subtarget ->  QEMU ARMv8 Virtual Machine (cortex-a53)
+       Target Profile  ->  Default
+       Target Images  ->   tar.gz
+       *** 必选软件包(基础依赖包，仅保证打出的包可以写入EMMC,可以在EMMC上在线升级，不包含具体的应用)： 
+       Languages -> Perl               
+                    ->  perl-http-date
+                    ->  perlbase-getopt
+                    ->  perlbase-time
+                    ->  perlbase-unicode                              
+                    ->  perlbase-utf8        
+       Utilities -> Disc -> blkid、fdisk、lsblk、parted            
+                 -> Filesystem -> attr、btrfs-progs(Build with zstd support)、chattr、dosfstools、
+                                  e2fsprogs、f2fs-tools、f2fsck、lsattr、mkf2fs、xfs-fsck、xfs-mkfs    
+                 -> Shells  ->  bash         
+                 -> gawk、getopt、losetup、tar、uuidgen
+
+
+
 # 感谢
  * [mingxiaoyu](https://github.com/mingxiaoyu/N1Openwrt)
  * [P3TERX](https://github.com/P3TERX/Actions-OpenWrt)提供的脚本参考
