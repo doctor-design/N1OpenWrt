@@ -54,13 +54,13 @@ jobs:
         types: s905d
         openwrt-version: R21.6.22
         whoami: doctor
-        kernel-version: 5.12.15-flippy-61+
+#        kernel-version: 5.12.15-flippy-61+
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
         openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/${{ env.version }}/openwrt-armvirt-64-default-rootfs-${{ env.SUB_VERSION }}.tar.gz 
     
     - name: Package OpenWrt with flippy script(+)     
-      uses: mingxiaoyu/package-flippy-openwrt@main
+      uses: doctor-design/package-flippy-openwrt@main
       with:
         types: s905d
         out: ${{ env.UPLOAD }}
