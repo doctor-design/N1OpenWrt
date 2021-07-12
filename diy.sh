@@ -104,7 +104,7 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/rapid
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/subconverter package/subconverter
 #添加smartdns
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/smartdns package/smartdns
-svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
+#svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
@@ -118,7 +118,6 @@ git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advance
 #svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 #添加argon-config 使用 最新argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 #修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
