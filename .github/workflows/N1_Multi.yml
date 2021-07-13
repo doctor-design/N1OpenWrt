@@ -37,10 +37,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - sub_version: plus
-            config_file: plus.config
           - sub_version: mini
             config_file: mini.config
+          - sub_version: plus
+            config_file: plus.config
     env:
         SUB_VERSION: ${{ matrix.sub_version }} 
         CONFIG_FILE: ${{ matrix.config_file }} 
