@@ -37,10 +37,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - sub_version: plus
-            config_file: plus.config
           - sub_version: mini
             config_file: mini.config
+          - sub_version: plus
+            config_file: plus.config
+
     env:
         SUB_VERSION: ${{ matrix.sub_version }} 
         CONFIG_FILE: ${{ matrix.config_file }} 
@@ -132,7 +133,7 @@ jobs:
         types: s905d
         openwrt-version: R21.6.22
         whoami: doctor
-        kernel-version: 5.12.13-flippy-61
+        kernel-version: 5.13.1-flippy-62
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
         openwrt-path: $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
