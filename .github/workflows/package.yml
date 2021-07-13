@@ -1,7 +1,6 @@
 name: Package OpenWrt
 
 on:
-#  repository_dispatch:
   workflow_dispatch:
       
 env:
@@ -63,12 +62,13 @@ jobs:
       with:
         types: s905d
         out: ${{ env.UPLOAD }}
-        kernel-version: latest+
-#        kernel-version: 5.10.48-flippy-61+
+#        kernel-version: latest+
+        kernel-version: 5.10.48-flippy-61+
         sub-name: ${{ env.SUB_VERSION}}
         whoami: doctor
 #       openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/$version/openwrt-armvirt-64-default-rootfs-${SUB_VERSION}.tar.gz 
         openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/${{ env.version }}/openwrt-armvirt-64-default-rootfs-${{ env.SUB_VERSION }}.tar.gz        
+
     - name: Create release
       if:  env.RELEASE == 'true' && !cancelled()
       uses: ncipollo/release-action@v1
