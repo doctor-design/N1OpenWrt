@@ -104,7 +104,7 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/rapid
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/subconverter package/subconverter
 #添加smartdns
 #svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/smartdns package/smartdns
-#svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
+svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
 
