@@ -9,7 +9,8 @@ N1打包学习测试，请不要使用。
 5. N1 Single Version 只编译一个版本
 6. Update Checker, 上游更新则编译。MULTIPLE_BUILD: true **编译mini和plus多版本编译**  false，**只编译mini**
 
- openwrt rootfs 编译注意事项：
+
+openwrt rootfs 编译注意事项：
 
        Target System  ->  QEMU ARM Virtual Machine 
        Subtarget ->  QEMU ARMv8 Virtual Machine (cortex-a53)
@@ -28,7 +29,21 @@ N1打包学习测试，请不要使用。
                  -> Shells  ->  bash         
                  -> gawk、getopt、losetup、tar、uuidgen
 
-
+        * (可选)Wifi基础包：
+        *     打出的包可支持博通SDIO无线模块,Firmware不用选，
+        *     因为打包源码中已经包含了来自Armbian的firmware，
+        *     会自动覆盖openwrt rootfs中已有的firmware
+        Kernel modules  ->   Wireless Drivers -> kmod-brcmfmac(SDIO) 
+                                              -> kmod-brcmutil
+                                              -> kmod-cfg80211
+                                              -> kmod-mac80211
+        Network  ->  WirelessAPD -> hostpad-common
+                                 -> wpa-cli
+                                 -> wpad-basic
+                 ->  iw
+       
+    
+    除上述必选项以外的软件包可以按需自主选择。
 
 # 感谢
  * [mingxiaoyu](https://github.com/mingxiaoyu/N1Openwrt)
