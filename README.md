@@ -10,7 +10,7 @@ N1打包学习测试，请不要使用。
 6. Update Checker, 上游更新则编译。MULTIPLE_BUILD: true **编译mini和plus多版本编译**  false，**只编译mini**
 
 
-openwrt rootfs 编译注意事项：
+  openwrt rootfs 编译注意事项：
 
        Target System  ->  QEMU ARM Virtual Machine 
        Subtarget ->  QEMU ARMv8 Virtual Machine (cortex-a53)
