@@ -63,7 +63,7 @@ jobs:
         types: s905d
         out: ${{ env.UPLOAD }}
 #        kernel-version: latest+
-        kernel-version: 5.4.131-flippy-62+
+        kernel-version: 5.13.1-flippy-62+
         sub-name: ${{ env.SUB_VERSION}}
         whoami: doctor
 #       openwrt-url: https://github.com/doctor-design/N1Openwrt/releases/download/$version/openwrt-armvirt-64-default-rootfs-${SUB_VERSION}.tar.gz 
