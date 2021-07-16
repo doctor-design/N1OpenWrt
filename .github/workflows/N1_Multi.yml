@@ -79,8 +79,6 @@ jobs:
     - name: Update & Install Feeds
       run: |
         cd openwrt
-#        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
-#        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         
@@ -162,7 +160,6 @@ jobs:
              5. gzip -d  *.img.gz
              6. ./update-amlogic-openwrt.sh xxxx.img
 
-#          ${{ env.useVersionInfo }}
         artifacts:  ${{ env.UPLOAD }}/*
 
   cleanjob:
