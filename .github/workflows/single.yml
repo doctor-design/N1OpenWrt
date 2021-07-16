@@ -58,8 +58,9 @@ jobs:
         
         cd /upload
         echo "UPLOAD=$PWD" >> $GITHUB_ENV
-        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")"  >> $GITHUB_ENV
+        
         echo "tag_name=$(date +%Y%m%d%H)" >> $GITHUB_ENV
+        echo "DATE=$(date "+%Y-%m-%d %H:%M:%S")"  >> $GITHUB_ENV
         
     - name: Clone source code
       working-directory: /workdir
@@ -68,8 +69,6 @@ jobs:
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt 
         cd openwrt
-        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
-        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
         
     - name: Update & Install Feeds
       run: |
@@ -132,8 +131,8 @@ jobs:
 #        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
-#       openwrt-path: openwrt/bin/targets/*/*
-        openwrt-path: $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
+       openwrt-path: openwrt/bin/targets/*/*
+#        openwrt-path: $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         sub-name: ${{env.N1_VER}}
    
     - name: Create release
@@ -149,7 +148,7 @@ jobs:
           默认IP：192.168.2.5 默认密码： password
           全新刷入emmc方法：
              1. 固件刷入U盘。
-             2. cd /root
+             2. cd root
              3. ./install-to-emmc.sh
              4. 拔掉U盘，断电重启。
              
@@ -160,15 +159,13 @@ jobs:
              4. chmod +x update-amlogic-openwrt.sh
              5. gzip -d  *.img.gz
              6. ./update-amlogic-openwrt.sh xxxx.img
-
-          ${{ env.useVersionInfo }}
         artifacts:  ${{ env.UPLOAD }}/*
         
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 6
+        keep_latest: 3
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASES_TOKEN }}
