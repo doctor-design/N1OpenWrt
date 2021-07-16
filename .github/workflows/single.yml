@@ -131,7 +131,7 @@ jobs:
 #        openwrt-version: R21.6.22
         whoami: doctor
         out: ${{ env.UPLOAD }}
-       openwrt-path: openwrt/bin/targets/*/*
+        openwrt-path: openwrt/bin/targets/*/*
 #        openwrt-path: $GITHUB_WORKSPACE/openwrt/bin/targets/*/*
         sub-name: ${{env.N1_VER}}
    
