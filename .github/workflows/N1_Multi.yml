@@ -128,7 +128,7 @@ jobs:
       uses: doctor-design/package-flippy-openwrt@main
       id: package
       with:
-        types: s905d
+        types: s905d,s905x3,vplus,beikeyun,l1pro
 #        openwrt-version: R21.6.22
 #        kernel-version: 5.12.13-flippy-61
         whoami: doctor
