@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   N1_VER: mini
-  CONFIG_FILE: ${{ env.N1_VER }}.config
+  CONFIG_FILE: .config
   DIY_SH: diy.sh
   TZ: Asia/Shanghai
   RELEASE: true
@@ -93,14 +93,14 @@ jobs:
     - name: Compile Firmware
       id: compile
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $N1_VER$CONFIG_FILE ] && mv $N1_VER$CONFIG_FILE openwrt/.config
         cd openwrt
         make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
         echo -e "$(nproc) thread compile"
-        echo $CONFIG_FILE
+        echo $N1_VER$CONFIG_FILE
         
         make -j$(nproc) || make -j1 || make -j1 V=s
         
