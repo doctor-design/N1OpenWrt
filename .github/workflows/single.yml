@@ -100,6 +100,7 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
         echo -e "$(nproc) thread compile"
+        echo $CONFIG_FILE
         
         make -j$(nproc) || make -j1 || make -j1 V=s
         
