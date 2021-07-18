@@ -24,7 +24,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  N1_VER: mini
+  N1_VER: mini   #选择配置文件(mini or plus)
   CONFIG_FILE: .config
   DIY_SH: diy.sh
   TZ: Asia/Shanghai
