@@ -51,7 +51,6 @@ jobs:
       uses: doctor-design/package-flippy-openwrt@main
       with:
         types: s905d
-#        openwrt-version: R21.6.22
         kernel-version: 5.10.50-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
