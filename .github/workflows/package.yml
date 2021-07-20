@@ -50,8 +50,8 @@ jobs:
     - name: Package OpenWrt with flippy script(+o or +)
       uses: doctor-design/package-flippy-openwrt@main
       with:
-        types: s905d
-        kernel-version: 5.10.50-flippy-62+
+        types: s905d,s905x3
+        kernel-version: 5.10.51-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
@@ -60,8 +60,8 @@ jobs:
     - name: Package OpenWrt with flippy script(+o +)     
       uses: doctor-design/package-flippy-openwrt@main
       with:
-        types: s905d
-        kernel-version: 5.13.2-flippy-62+
+        types: s905d,s905x3
+        kernel-version: 5.13.3-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
