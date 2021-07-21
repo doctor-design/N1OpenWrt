@@ -130,8 +130,8 @@ sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci
 sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 
 #replace coremark.sh with the new one
-rm package/lean/coremark/coremark.sh
-cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
+#rm package/lean/coremark/coremark.sh
+#cp $GITHUB_WORKSPACE/general/coremark.sh package/lean/coremark/
 
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-alt/shadowsocksr-libev-ssr-redir/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-vssr/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-server/shadowsocksr-libev-ssr-server/g' {}
