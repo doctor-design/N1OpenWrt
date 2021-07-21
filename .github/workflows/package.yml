@@ -23,8 +23,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-      #with:
-      #  ref: 57
         
     - name: Initialization environment
       run: |     
@@ -50,8 +48,9 @@ jobs:
     - name: Package OpenWrt with flippy script(+o or +)
       uses: doctor-design/package-flippy-openwrt@main
       with:
-        types: s905d,s905x3
-        kernel-version: 5.10.51-flippy-62+
+#        types: s905d,s905x3,vplus,beikeyun,l1pro
+        types: s905d
+        kernel-version: 5.10.52-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
@@ -60,8 +59,9 @@ jobs:
     - name: Package OpenWrt with flippy script(+o +)     
       uses: doctor-design/package-flippy-openwrt@main
       with:
-        types: s905d,s905x3
-        kernel-version: 5.13.3-flippy-62+
+#        types: s905d,s905x3,vplus,beikeyun,l1pro
+        types: s905d
+        kernel-version: 5.13.4-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
