@@ -50,7 +50,7 @@ jobs:
       with:
 #        types: s905d,s905x3,vplus,beikeyun,l1pro
         types: s905d
-        kernel-version: 5.10.55-flippy-62+
+        kernel-version: 5.10.56-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
@@ -61,7 +61,7 @@ jobs:
       with:
 #        types: s905d,s905x3,vplus,beikeyun,l1pro
         types: s905d
-        kernel-version: 5.13.7-flippy-62+
+        kernel-version: 5.13.8-flippy-62+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
