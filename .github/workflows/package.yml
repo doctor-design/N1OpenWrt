@@ -51,7 +51,7 @@ jobs:
 #        types: s905d,s905x3,vplus,beikeyun,l1pro
         types: s905d
         openwrt-version: R21.8.6
-        kernel-version: 5.10.56-flippy-62+
+        kernel-version: 5.10.57-flippy-63+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
@@ -63,7 +63,7 @@ jobs:
 #        types: s905d,s905x3,vplus,beikeyun,l1pro
         types: s905d
         openwrt-version: R21.8.6
-        kernel-version: 5.13.8-flippy-62+
+        kernel-version: 5.13.9-flippy-63+
         whoami: doctor
         out: ${{ env.UPLOAD }}
         sub-name: ${{ env.SUB_VERSION}}
