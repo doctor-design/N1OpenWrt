@@ -10,6 +10,9 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.5/g' package/base-files/files/bin/config_generate
+#readd cpufreq for aarch64
+sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
+sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
 #移除不用软件包
 rm -rf package/lean/luci-app-dockerman
 rm -rf package/lean/luci-lib-docker
@@ -56,6 +59,7 @@ svn co https://github.com/xiaorouji/openwrt-passwall/trunk/trojan-plus package/t
 svn co https://github.com/immortalwrt/luci/branches/openwrt-21.02/applications/luci-app-socat package/luci-app-socat
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/luci-app-passwall package/luci-app-passwall
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk/ssocks package/ssocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk/hysteria package/hysteria
 svn co https://github.com/fw876/helloworld/trunk/xray-core package/xray-core
 svn co https://github.com/fw876/helloworld/trunk/xray-plugin package/xray-plugin
 svn co https://github.com/fw876/helloworld/trunk/shadowsocks-rust package/shadowsocks-rust
@@ -127,9 +131,7 @@ find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHREPO/PKG_SOURCE_URL:=https:\/\/github\.com/g' {}
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/PKG_SOURCE_URL:=\@GHCODELOAD/PKG_SOURCE_URL:=https:\/\/codeload\.github\.com/g' {}
 
-#readd cpufreq for aarch64
-sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
-sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
 
 #replace coremark.sh with the new one
 #cp -f $GITHUB_WORKSPACE/general/coremark.sh feeds/packages/utils/coremark/
