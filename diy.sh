@@ -10,14 +10,15 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.2.5/g' package/base-files/files/bin/config_generate
+
 #readd cpufreq for aarch64
 sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
 sed -i 's/services/system/g' package/lean/luci-app-cpufreq/luasrc/controller/cpufreq.lua
+
 #移除不用软件包
 rm -rf package/lean/luci-app-dockerman
 rm -rf package/lean/luci-lib-docker
 rm -rf package/lean/luci-app-wrtbwmon
-rm -rf package/lean/luci-theme-argon
 rm -rf feeds/packages/net/smartdns
 
 
@@ -29,7 +30,6 @@ git clone https://github.com/jerrykuku/luci-app-ttnode.git package/luci-app-ttno
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 git clone https://github.com/kongfl888/luci-app-adguardhome.git package/luci-app-adguardhome
-#git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
 # Docker
 svn co https://github.com/lisaac/luci-app-dockerman/trunk/applications/luci-app-dockerman package/luci-app-dockerman
 git clone --depth=1 https://github.com/lisaac/luci-lib-docker package/luci-lib-docker
@@ -40,7 +40,9 @@ fi
 
 git clone https://github.com/rufengsuixing/luci-app-autoipsetadder.git package/luci-app-autoipsetadder
 git clone https://github.com/mchome/openwrt-dogcom.git package/openwrt-dogcom
+git clone https://github.com/mchome/luci-app-dogcom.git package/luci-app-dogcom
 #git clone https://github.com/garypang13/luci-app-dnsfilter package/luci-app-dnsfilter
+git clone https://github.com/small-5/luci-app-adblock-plus package/luci-app-adblock-plus
 git clone https://github.com/project-lede/luci-app-godproxy package/luci-app-godproxy
 
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
@@ -107,11 +109,14 @@ svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/libcr
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/rapidjson package/rapidjson
 #svn co https://github.com/immortalwrt/immortalwrt/trunk/package/ctcgfw/subweb package/subweb
 svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/subconverter package/subconverter
+svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/libs/toml11 package/toml11
 #添加smartdns
-#svn co https://github.com/immortalwrt/packages/branches/openwrt-21.02/net/smartdns package/smartdns
 svn co https://github.com/kenzok8/openwrt-packages/trunk/smartdns package/smartdns
 svn co https://github.com/garypang13/openwrt-packages/trunk/smartdns-le package/smartdns-le
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-smartdns package/luci-app-smartdns
+sed -i 's/PKG_VERSION:=.*/PKG_VERSION:=1.2021.34/' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_SOURCE_VERSION:=.*/PKG_SOURCE_VERSION:=756029f5e9879075c042030bd3aa3db06d700270/' feeds/packages/net/smartdns/Makefile
+sed -i 's/PKG_MIRROR_HASH:=.*/PKG_MIRROR_HASH:=c2979d956127946861977781beb3323ad9a614ae55014bc99ad39beb7a27d481/' feeds/packages/net/smartdns/Makefile
 
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/ddnsto package/ddnsto
 svn co https://github.com/linkease/ddnsto-openwrt/trunk/luci-app-ddnsto package/luci-app-ddnsto
@@ -123,7 +128,7 @@ git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advance
 #svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 #添加argon-config 使用 最新argon
 git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-
+rm -rf package/lean/luci-theme-argon/
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 #修改makefile
 find package/*/ -maxdepth 2 -path "*/Makefile" | xargs -i sed -i 's/include\ \.\.\/\.\.\/luci\.mk/include \$(TOPDIR)\/feeds\/luci\/luci\.mk/g' {}
